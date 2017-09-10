@@ -1,5 +1,9 @@
 pipeline:
   publish:
-    image: plugins/docker
-    repo: tim15/golang-proto-docker
-    tags: [ 1.0.0, 1.0, latest ]
+    image: docker
+    commands:
+      - docker build -t tim15/goproto .
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker push tim15/goproto
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
