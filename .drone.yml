@@ -1,0 +1,5 @@
+pipeline:
+  publish:
+    image: plugins/docker
+    repo: tim15/golang-proto-docker
+    tags: [ 1.0.0, 1.0, latest ]
