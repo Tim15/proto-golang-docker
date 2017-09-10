@@ -1,7 +1,7 @@
 FROM golang:alpine
 
 WORKDIR /tmp
-ARG VERSION=v3.4.0
+ARG VERSION=3.4.0
 RUN apk add --no-cache --virtual .build-deps wget openssl unzip && \
   wget https://github.com/google/protobuf/releases/download/v${VERSION}/protoc-${VERSION}-$(uname -s)-$(uname -m).zip -O protoc.zip  && \
   unzip protoc.zip -d ./protoc && \
