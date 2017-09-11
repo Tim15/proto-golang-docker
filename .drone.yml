@@ -2,9 +2,9 @@ pipeline:
   publish:
     image: docker
     commands:
-      - echo ${DOCKER_USERNAME} ${DOCKER_PASSWORD}
+      - echo "${DOCKER_USERNAME} ${DOCKER_PASSWORD}"
       - docker build -t tim15/goproto .
-      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
       - docker push tim15/goproto
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
