@@ -2,6 +2,7 @@ pipeline:
   publish:
     image: docker
     commands:
+      - env
       - echo "${DOCKER_USERNAME} ${DOCKER_PASSWORD}"
       - docker build -t tim15/goproto .
       - docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
