@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: "docker"
+    steps:
+      - run: apk add --no-cache git
+      - checkout
+      - setup_remote_docker
+      - run: docker build -t tim15/goproto .
+      - run: docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
+      - run: docker push tim15/goproto
